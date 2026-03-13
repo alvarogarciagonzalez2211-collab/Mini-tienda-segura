@@ -1,92 +1,103 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mini-Tienda JS</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Tienda Segura</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="app">
-    <header class="hero">
+  <main class="container">
+    <header class="hero card">
       <div>
-        <h1>Mini-Tienda</h1>
-        <p>Registro, login, compra y venta de productos con JavaScript.</p>
+        <h1>Mini Tienda Segura</h1>
+        <p class="subtitle">
+          Registro, inicio de sesión, publicación de productos, compras y validaciones del lado del cliente y del servidor.
+        </p>
       </div>
-      <div id="sessionPanel" class="session-panel hidden">
-        <p><strong id="welcomeUser"></strong></p>
-        <p>Saldo: <strong id="userBalance"></strong> €</p>
-        <button id="logoutBtn">Cerrar sesión</button>
+      <div id="sessionBox" class="session-box hidden">
+        <p>Conectado como <strong id="currentUser"></strong></p>
+        <button id="logoutBtn" class="btn btn-secondary">Cerrar sesión</button>
       </div>
     </header>
 
-    <section id="messageBox" class="message hidden"></section>
+    <section id="message" class="message hidden" aria-live="polite"></section>
 
-    <section id="authSection" class="auth-grid">
-      <article class="card">
-        <h2>Registro</h2>
-        <form id="registerForm">
+    <section class="grid two-columns">
+      <article id="authPanel" class="card">
+        <h2>Acceso</h2>
+        <div class="tabs">
+          <button id="tabLogin" class="tab active" type="button">Iniciar sesión</button>
+          <button id="tabRegister" class="tab" type="button">Registrarse</button>
+        </div>
+
+        <form id="loginForm" class="form">
           <label>
             Usuario
-            <input type="text" id="registerUsername" required />
+            <input type="text" name="username" maxlength="20" autocomplete="username" required>
           </label>
           <label>
             Contraseña
-            <input type="password" id="registerPassword" required />
+            <input type="password" name="password" maxlength="72" autocomplete="current-password" required>
           </label>
-          <button type="submit">Registrarse</button>
+          <button class="btn" type="submit">Entrar</button>
+        </form>
+
+        <form id="registerForm" class="form hidden">
+          <label>
+            Usuario
+            <input type="text" name="username" maxlength="20" autocomplete="username" required>
+          </label>
+          <label>
+            Contraseña
+            <input type="password" name="password" maxlength="72" autocomplete="new-password" required>
+          </label>
+          <p class="helper-text">
+            La contraseña debe tener 10 caracteres o más, con mayúscula, minúscula, número y símbolo.
+          </p>
+          <button class="btn" type="submit">Crear cuenta</button>
         </form>
       </article>
 
-      <article class="card">
-        <h2>Iniciar sesión</h2>
-        <form id="loginForm">
+      <article id="sellPanel" class="card hidden">
+        <h2>Vender producto</h2>
+        <form id="sellForm" class="form">
           <label>
-            Usuario
-            <input type="text" id="loginUsername" required />
+            Título
+            <input type="text" name="title" maxlength="60" required>
           </label>
           <label>
-            Contraseña
-            <input type="password" id="loginPassword" required />
+            Descripción
+            <textarea name="description" maxlength="300" rows="5" required></textarea>
           </label>
-          <button type="submit">Entrar</button>
+          <label>
+            Precio (€)
+            <input type="number" name="price" min="0.01" max="1000000" step="0.01" required>
+          </label>
+          <button class="btn" type="submit">Publicar</button>
         </form>
       </article>
     </section>
 
-    <section id="shopSection" class="hidden">
-      <div class="sell-box card">
-        <h2>Vender un producto</h2>
-        <form id="sellForm">
-          <label>
-            Nombre del producto
-            <input type="text" id="productName" required />
-          </label>
-          <label>
-            Precio
-            <input type="number" id="productPrice" min="1" required />
-          </label>
-          <button type="submit">Publicar producto</button>
-        </form>
-      </div>
+    <section class="grid two-columns stack-mobile">
+      <article class="card">
+        <div class="section-header">
+          <h2>Productos disponibles</h2>
+          <button id="refreshBtn" class="btn btn-secondary" type="button">Actualizar</button>
+        </div>
+        <div id="productsList" class="list"></div>
+      </article>
 
-      <section>
-        <h2>Productos disponibles</h2>
-        <div id="availableProducts" class="grid"></div>
-      </section>
-
-      <section>
-        <h2>Mis productos en venta</h2>
-        <div id="myListings" class="grid"></div>
-      </section>
-
-      <section>
-        <h2>Mis compras</h2>
-        <div id="myPurchases" class="grid"></div>
-      </section>
+      <article id="privatePanel" class="card hidden">
+        <h2>Mi actividad</h2>
+        <h3>Productos publicados</h3>
+        <div id="mySellingList" class="list compact"></div>
+        <h3>Compras realizadas</h3>
+        <div id="myBoughtList" class="list compact"></div>
+      </article>
     </section>
   </main>
 
-  <script src="app.js"></script>
+  <script src="client.js" defer></script>
 </body>
 </html>
