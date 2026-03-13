@@ -1,15 +1,27 @@
 {
-  "name": "mini-tienda-js",
+  "name": "mini-tienda-segura",
   "version": "1.0.0",
-  "description": "Mini-Tienda con registro, login, compra y venta de productos",
-  "main": "server.js",
+  "description": "Mini tienda segura con Node.js, Express y JSON local",
+  "main": "app.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
+    "start": "node app.js",
+    "dev": "node --watch app.js"
   },
+  "keywords": [
+    "node",
+    "express",
+    "security",
+    "shop",
+    "json"
+  ],
+  "author": "Victor",
+  "license": "MIT",
   "dependencies": {
-    "bcryptjs": "^3.0.2",
-    "express": "^5.1.0",
-    "express-session": "^1.18.2"
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "express-session": "^1.18.1",
+    "helmet": "^8.1.0"
   }
 }

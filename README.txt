@@ -1,14 +1,19 @@
-Mini-Tienda en JavaScript
+# Mini Tienda Segura
 
-1. Abre la terminal dentro de esta carpeta.
-2. Ejecuta: npm install
-3. Ejecuta: node server.js
-4. Abre: http://localhost:3000
+## Características
+- Registro de usuarios
+- Inicio y cierre de sesión
+- Publicación de productos
+- Compra de productos
+- Persistencia en archivo JSON local
+- Validación de formularios
+- Protección de rutas
+- Hash de contraseñas con bcrypt
+- Rate limiting
+- Errores amigables
 
-Funciones:
-- Registro
-- Inicio de sesión
-- Ver productos
-- Comprar productos
-- Vender productos
-- Cierre de sesión
+## Instalación
+```bash
+npm install
+cp .env.example .env
+npm start
