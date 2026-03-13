@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini-Tienda JS</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="hero">
+      <div>
+        <h1>Mini-Tienda</h1>
+        <p>Registro, login, compra y venta de productos con JavaScript.</p>
+      </div>
+      <div id="sessionPanel" class="session-panel hidden">
+        <p><strong id="welcomeUser"></strong></p>
+        <p>Saldo: <strong id="userBalance"></strong> €</p>
+        <button id="logoutBtn">Cerrar sesión</button>
+      </div>
+    </header>
+
+    <section id="messageBox" class="message hidden"></section>
+
+    <section id="authSection" class="auth-grid">
+      <article class="card">
+        <h2>Registro</h2>
+        <form id="registerForm">
+          <label>
+            Usuario
+            <input type="text" id="registerUsername" required />
+          </label>
+          <label>
+            Contraseña
+            <input type="password" id="registerPassword" required />
+          </label>
+          <button type="submit">Registrarse</button>
+        </form>
+      </article>
+
+      <article class="card">
+        <h2>Iniciar sesión</h2>
+        <form id="loginForm">
+          <label>
+            Usuario
+            <input type="text" id="loginUsername" required />
+          </label>
+          <label>
+            Contraseña
+            <input type="password" id="loginPassword" required />
+          </label>
+          <button type="submit">Entrar</button>
+        </form>
+      </article>
+    </section>
+
+    <section id="shopSection" class="hidden">
+      <div class="sell-box card">
+        <h2>Vender un producto</h2>
+        <form id="sellForm">
+          <label>
+            Nombre del producto
+            <input type="text" id="productName" required />
+          </label>
+          <label>
+            Precio
+            <input type="number" id="productPrice" min="1" required />
+          </label>
+          <button type="submit">Publicar producto</button>
+        </form>
+      </div>
+
+      <section>
+        <h2>Productos disponibles</h2>
+        <div id="availableProducts" class="grid"></div>
+      </section>
+
+      <section>
+        <h2>Mis productos en venta</h2>
+        <div id="myListings" class="grid"></div>
+      </section>
+
+      <section>
+        <h2>Mis compras</h2>
+        <div id="myPurchases" class="grid"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "nombre": "Teclado mecánico",
+    "precio": 50,
+    "sellerId": "tienda",
+    "sellerName": "Tienda",
+    "ownerId": null,
+    "disponible": true
+  },
+  {
+    "id": "2",
+    "nombre": "Ratón gaming",
+    "precio": 30,
+    "sellerId": "tienda",
+    "sellerName": "Tienda",
+    "ownerId": null,
+    "disponible": true
+  },
+  {
+    "id": "3",
+    "nombre": "Monitor 24 pulgadas",
+    "precio": 120,
+    "sellerId": "tienda",
+    "sellerName": "Tienda",
+    "ownerId": null,
+    "disponible": true
+  }
+]
